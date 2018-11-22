@@ -1,0 +1,12 @@
+extends ./layout.pug
+
+block contenido
+    div
+        form(action="/app/usuarios", method="POST")
+            h1 Registro
+            div
+                label(for="nombre") Usuario
+                input(type="text", name="nombre", placeholder="Usuario", id="nombre")
+            div
+                div
+                    input(type="submit" value="Iniciar sesion" class="btn btn-info")

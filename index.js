@@ -24,7 +24,11 @@ app.get("/listar",(req,res)=>{
     res.render("listar-usuarios")
 })
 app.post("/inicio_session",usrCtrl.login);
+app.get("/registro", (req,res)=>{
+    res.render("registro")
+})
 app.use("/app",router_app)
+
 app.listen(3000,()=>{
     console.log("Servidor Inicializado")
 })
