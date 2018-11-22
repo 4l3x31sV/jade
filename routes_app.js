@@ -6,12 +6,18 @@ router.route("/usuarios")
 .get(usrCtrl.buscarUsuarios)
 .post(usrCtrl.insertarUsuario)
 
+router.get("/ejemplo",(req,res)=>{
+    res.send("ejemplo")
+});
 router.route("/usuarios/:id")
 .get()
 .put()
 .delete()
 module.exports = router;
 /*
+/app/ejemplo
+/inmuebles/buscar
+/vehiculos/buscar
     app.post("/usuarios",()=>....)
     app.get("/usuarios", ()=>....)
     app.put("/usuarios", ()=>....)
