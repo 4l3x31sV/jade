@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var path = require('path');
 var methodOverride = require("method-override");
 var usrCtrl = require('./controller/userController');
-
+var router_app = require("./routes_app");
 var app = express();
 app.set("view engine", "pug");
 
@@ -20,8 +20,11 @@ app.get("/", (req,res)=>{
 app.get("/login", (req,res)=>{
     res.render("inicio-session")
 })
+app.get("/listar",(req,res)=>{
+    res.render("listar-usuarios")
+})
 app.post("/inicio_session",usrCtrl.login);
-app.post("/listar",)
+app.use("/app",router_app)
 app.listen(3000,()=>{
     console.log("Servidor Inicializado")
 })

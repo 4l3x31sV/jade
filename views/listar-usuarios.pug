@@ -1,4 +1,7 @@
 extends ./layout.pug
 
 block contenido
-
+    div(class="container")
+        h1 Usuarios
+        each usuario in usuarios
+            li= usuario.nombre

@@ -13,16 +13,33 @@ function login(req,res){
 function buscarUsuarios(req,res){
     console.log("Ingresa a la fucion")
 
-    User.find({},(err,cruds)=>{
-        console.log(JSON.stringify(cruds))
+    User.find({},(err,usuarios)=>{
+        console.log(JSON.stringify(usuarios))
         if(!err){
-            res.render("")
+            res.render("listar-usuarios", {usuarios: usuarios})
         }else {
             res.render("error")
         }
     })
 }
+
+function insertarUsuario(req,res){
+    var user = new User({
+        nombre: req.body.nombre,
+        apellido:"Morales",
+        fecha: new Date()
+    })
+
+    user.save().then((us)=>{
+        console.log(JSON.stringify(us))
+        res.render("index")
+    },(err)=>{
+        console.log(JSON.stringify(err))
+        res.render("error")
+    })
+}
 module.exports = {
     login,
-    buscarUsuarios
+    buscarUsuarios,
+    insertarUsuario
 }
